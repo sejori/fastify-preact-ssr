@@ -1,0 +1,54 @@
+{
+    "name": "howtobuild",
+    "version": "0.0.1",
+    "description": "learn how to build your next project",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" & exit 1",
+        "rollup": "rollup --config --watch",
+        "nodemon": "nodemon lib/server.js --dev",
+        "dev": "npm run rollup & npm run nodemon",
+        "start": "node lib/server.js",
+        "build": "rollup --config"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sebringrose/HowToBuild.git"
+    },
+    "keywords": [
+        "chat",
+        "education",
+        "preact",
+        "fastify",
+        "how",
+        "to",
+        "build",
+        "your",
+        "next",
+        "project",
+        "software",
+        "tech"
+    ],
+    "author": "Seb Ringrose <sebringrose@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sebringrose/HowToBuild/issues"
+    },
+    "homepage": "https://github.com/sebringrose/HowToBuild#readme",
+    "dependencies": {
+        "fastify": "^3.13.0",
+        "fastify-compress": "^3.4.2",
+        "fastify-static": "^4.0.1",
+        "htm": "^3.0.4",
+        "preact": "^10.5.12",
+        "preact-render-to-string": "^5.1.14",
+        "preact-router": "^3.2.1"
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^7.1.3",
+        "nodemon": "^2.0.7",
+        "preact-cli": "^3.0.5",
+        "rollup": "^1.32.1"
+    }
+}
