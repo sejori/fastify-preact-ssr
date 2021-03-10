@@ -8,7 +8,7 @@
         "test": "echo \"Error: no test specified\" & exit 1",
         "rollup": "rollup --config --watch",
         "nodemon": "nodemon lib/server.js --dev",
-        "dev": "npm run rollup & npm run nodemon",
+        "dev": "npm run rollup -m inline & npm run nodemon",
         "start": "node lib/server.js",
         "build": "rollup --config"
     },

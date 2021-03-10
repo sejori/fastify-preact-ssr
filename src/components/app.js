@@ -1,4 +1,4 @@
-import { html } from 'htm/preact/index.js'
+import { html } from '../htm.js'
 import { useState } from 'preact/hooks'
 import List from './list.js'
 
