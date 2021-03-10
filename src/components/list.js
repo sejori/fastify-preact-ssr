@@ -1,4 +1,4 @@
-import { html } from '../htm.js'
+import { html } from 'htm/preact'
 
 const List = ({ data }) => { // takes a data prop
     return html`

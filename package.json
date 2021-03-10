@@ -2,13 +2,13 @@
     "name": "howtobuild",
     "version": "0.0.1",
     "description": "learn how to build your next project",
-    "main": "server.js",
+    "main": "lib/server.js",
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" & exit 1",
-        "rollup": "rollup --config --watch",
-        "nodemon": "nodemon lib/server.js --dev",
-        "dev": "npm run rollup -m inline & npm run nodemon",
+        "rollup": "rollup --config --watch --sourcemap",
+        "nodemon": "nodemon lib/server.js",
+        "dev": "npm run rollup & npm run nodemon",
         "start": "node lib/server.js",
         "build": "rollup --config"
     },
@@ -41,7 +41,7 @@
         "fastify-compress": "^3.4.2",
         "fastify-static": "^4.0.1",
         "htm": "^3.0.4",
-        "preact": "^10.5.12",
+        "preact": "^10.3.4",
         "preact-render-to-string": "^5.1.14",
         "preact-router": "^3.2.1"
     },
