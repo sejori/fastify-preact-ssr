@@ -1,4 +1,4 @@
-# Server-side rendered Preact Fastify app.
+# Fastify Preact SSR.
 
 ![lighthouse-score](https://raw.githubusercontent.com/sebringrose/how-to-build/main/public/lighthouse-score.png)
 
@@ -6,12 +6,9 @@
 
 The **Fastify** app bundle ```lib/server.js -> rollup -> build/server.js``` uses ```src/pages/index.js``` to render the html for each page on the server side using **preact-render-to-string** and serve via the correct url path. 
 
-The Preact bundle (```src/client.js -> rollup -> public/client.js```) is referrenced in the html and once loaded will Hydrate the DOM with all the juicy **Preact** goodness with **preact-router** to hydrate the correct content for the page. 
+The Preact bundle (```src/client.js -> rollup -> public/client.js```) is referrenced in the html and once loaded will Hydrate the DOM with all the juicy **Preact** goodness with **preact-router**  ```src/components/Router.js``` to hydrate the correct content for the page. 
 
 This does mean that Preact components for all pages are loaded in the ```client.js``` bundle, making the initial time-to-interactive slower if you have many pages with many components. The perk of this is that once this file is cached by the browser your pages will all be super snappy!
-
-**styled-components** are used for clean, css-in-js styling. It's just the best style solution out there for this kind of application.
-
 
 ### Commands:
 

@@ -1,9 +1,8 @@
 import { html } from 'htm/preact'
 import { Router as PreactRouter } from 'preact-router'
 
-import pages from '../pages'
-import Home from '../pages/home'
-import About from '../pages/about'
+import Home from '../pages/Home'
+import About from '../pages/About'
 
 const Router = () => {
     return html`
@@ -16,5 +15,7 @@ const Router = () => {
 
 export default Router
 
-
+// this doesn't seem to work, gives undefined prop error...
+//
+// import pages from '../pages'
 // ${pages.map(page => html`<${page.component} path="${page.route}">`)}

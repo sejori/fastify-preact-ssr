@@ -1,7 +1,7 @@
 {
-    "name": "howtobuild",
-    "version": "0.0.1",
-    "description": "Chat-based search that helps you build your next software project.",
+    "name": "fastify-preact-ssr",
+    "version": "1.0.0",
+    "description": "Fastify server that renders Preact to html and serves a Preact client.js bundle for DOM hydration. Powered by Rollup.",
     "main": "build/index.js",
     "scripts": {
         "nodemon": "nodemon build/server.js",
@@ -12,28 +12,19 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/sebringrose/HowToBuild.git"
+        "url": "git+https://github.com/sebringrose/fastify-preact-ssr.git"
     },
     "keywords": [
-        "chat",
-        "education",
-        "preact",
         "fastify",
-        "how",
-        "to",
-        "build",
-        "your",
-        "next",
-        "project",
-        "software",
-        "tech"
+        "preact",
+        "ssr"
     ],
     "author": "Seb Ringrose <sebringrose@gmail.com>",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/sebringrose/HowToBuild/issues"
+        "url": "https://github.com/sebringrose/fastify-preact-ssr/issues"
     },
-    "homepage": "https://github.com/sebringrose/HowToBuild#readme",
+    "homepage": "https://github.com/sebringrose/fastify-preact-ssr#readme",
     "dependencies": {
         "@rollup/plugin-json": "^4.1.0",
         "fastify": "^3.13.0",
@@ -42,7 +33,8 @@
         "htm": "^3.0.4",
         "preact": "^10.3.4",
         "preact-render-to-string": "^5.1.14",
-        "preact-router": "^3.2.1"
+        "preact-router": "^3.2.1",
+        "styled-components": "^5.2.1"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^7.1.3",

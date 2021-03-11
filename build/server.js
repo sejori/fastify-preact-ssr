@@ -12,16 +12,36 @@ var n$2=function(t,s,r,e){var u;s[0]=0;for(var h=1;h<s.length;h++){var p=s[h++],
 
 var m$1=e.bind(a);
 
-const Layout = ({ children }) => {
+const Layout = ({ navColour, children }) => {
+
     return m$1`
-        <nav>
-            <a href="/">Home...</a><a href="/about">About...</a>
+        <nav style=${navStyle(navColour)}>
+            <a style=${navLinkStyle} href="/">Home</a>
+            <a style=${navLinkStyle} href="/about">About</a>
         </nav>
-        <main>
+        <main style=${mainStyle}>
             ${m$1`${children}`}
         </main>
     `
 };
+
+const navStyle = (colour) => `
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: ${colour};
+`;
+
+const navLinkStyle = `
+    margin: 1rem;
+`;
+
+const mainStyle = `
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+`;
 
 var t$1,u$1,r$1,o$1=0,i$2=[],c$1=n.__b,f$1=n.__r,e$1=n.diffed,a$2=n.__c,v$2=n.unmount;function m$2(t,r){n.__h&&n.__h(u$1,t,o$1||r),o$1=0;var i=u$1.__H||(u$1.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l$1(n){return o$1=1,p$1(w,n)}function p$1(n,r,o){var i=m$2(t$1++,2);return i.t=n,i.__c||(i.__=[o?o(r):w(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u$1),i.__}function x$1(){i$2.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j),t.__H.__h=[];}catch(u){t.__H.__h=[],n.__e(u,t.__v);}}),i$2=[];}n.__b=function(n){u$1=null,c$1&&c$1(n);},n.__r=function(n){f$1&&f$1(n),t$1=0;var r=(u$1=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j),r.__h=[]);},n.diffed=function(t){e$1&&e$1(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$2.push(o)&&r$1===n.requestAnimationFrame||((r$1=n.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b$1&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b$1&&(t=requestAnimationFrame(u));})(x$1)),u$1=void 0;},n.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],n.__e(r,t.__v);}}),a$2&&a$2(t,u);},n.unmount=function(t){v$2&&v$2(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){n.__e(t,u.__v);}};var b$1="function"==typeof requestAnimationFrame;function g$1(n){var t=u$1;"function"==typeof n.__c&&n.__c(),u$1=t;}function j(n){var t=u$1;n.__c=n.__(),u$1=t;}function w(n,t){return "function"==typeof t?t(n):t}//# sourceMappingURL=hooks.module.js.map
 
@@ -50,27 +70,41 @@ const List = ({ data }) => { // takes a data prop
   `
 };
 
-const dataArray = ['Item one', 'Item two', 'Item three'];
+const App = () => {
+    const [dataArray, setDataArray] = l$1(['Item 0', 'Item 1', 'Item 2']);
 
-const PreactApp = () => {
-  return m$1`
-    <${List} data=${dataArray} />
-  `
+    return m$1`
+        <${List} data=${dataArray} />
+        <button style=${buttonStyle} onClick=${() => setDataArray(dataArray => [...dataArray, `Item ${dataArray.length}`])}>add item</button>
+    `
 };
 
+const buttonStyle = `
+    border: solid 1px red;
+    background-color: orange;
+    padding: 0.5rem;
+    font-size: 1rem;
+`;
+
 const Home = () => {
-    return m$1`<${Layout}>
+    return m$1`<${Layout} navColour="palegreen">
         <h1>Home!</h1>
-        <${PreactApp} />
+        <${App} />
     <//>`
 };
 
 const About = () => {
-    return m$1`<${Layout}>
+    return m$1`<${Layout} navColour="lavender">
         <h1>About!</h1>
-        <img src="/lighthouse-score.png" alt="lighthouse-score" />
+        <img style=${imgStyle} src="/lighthouse-score.png" alt="lighthouse-score" />
+        <p>Do I need to say anymore?</p>
+        <a href="https://github.com/sebringrose/fastify-preact-ssr">Github</a>
     <//>`
 };
+
+const imgStyle = `
+    max-width: 100%;
+`;
 
 var pages = [
     {
@@ -83,9 +117,9 @@ var pages = [
     },
 ];
 
-var name = "howtobuild";
-var version = "0.0.1";
-var description = "Chat-based search that helps you build your next software project.";
+var name = "fastify-preact-ssr";
+var version = "1.0.0";
+var description = "Fastify server that renders Preact to html and serves a Preact client.js bundle for DOM hydration. Powered by Rollup.";
 var main = "build/index.js";
 var scripts = {
 	nodemon: "nodemon build/server.js",
@@ -96,28 +130,19 @@ var scripts = {
 };
 var repository = {
 	type: "git",
-	url: "git+https://github.com/sebringrose/HowToBuild.git"
+	url: "git+https://github.com/sebringrose/fastify-preact-ssr.git"
 };
 var keywords = [
-	"chat",
-	"education",
-	"preact",
 	"fastify",
-	"how",
-	"to",
-	"build",
-	"your",
-	"next",
-	"project",
-	"software",
-	"tech"
+	"preact",
+	"ssr"
 ];
 var author = "Seb Ringrose <sebringrose@gmail.com>";
 var license = "ISC";
 var bugs = {
-	url: "https://github.com/sebringrose/HowToBuild/issues"
+	url: "https://github.com/sebringrose/fastify-preact-ssr/issues"
 };
-var homepage = "https://github.com/sebringrose/HowToBuild#readme";
+var homepage = "https://github.com/sebringrose/fastify-preact-ssr#readme";
 var dependencies = {
 	"@rollup/plugin-json": "^4.1.0",
 	fastify: "^3.13.0",
@@ -126,7 +151,8 @@ var dependencies = {
 	htm: "^3.0.4",
 	preact: "^10.3.4",
 	"preact-render-to-string": "^5.1.14",
-	"preact-router": "^3.2.1"
+	"preact-router": "^3.2.1",
+	"styled-components": "^5.2.1"
 };
 var devDependencies = {
 	"@rollup/plugin-node-resolve": "^7.1.3",
@@ -165,6 +191,7 @@ var htmlShell = (html) => `
                 height: 100%;
                 width: 100%;
                 margin: 0;
+                font-family: helvetica;
             }
         </style>
     </head>
