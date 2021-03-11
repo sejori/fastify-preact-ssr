@@ -1,6 +1,6 @@
 # Server-side rendered Preact Fastify app.
 
-![lighthouse-score]()
+![lighthouse-score](https://raw.githubusercontent.com/sebringrose/how-to-build/main/public/lighthouse-score.png)
 
 ### Overview:
 
