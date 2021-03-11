@@ -1,4 +1,4 @@
 import { hydrate } from 'preact'
-import App from './components/app'
+import PreactApp from './components/PreactApp'
 
-hydrate(App(), document.querySelector('#root'))
+hydrate(PreactApp(), document.getElementById('root'))

@@ -4,37 +4,40 @@ var n$1=function(t,s,r,e){var u;s[0]=0;for(var h=1;h<s.length;h++){var p=s[h++],
 
 var m$1=e$1.bind(a);
 
-var t$2,u$1,r$1,o$1=0,i$1=[],c$1=n.__b,f$1=n.__r,e$2=n.diffed,a$1=n.__c,v$1=n.unmount;function m$2(t,r){n.__h&&n.__h(u$1,t,o$1||r),o$1=0;var i=u$1.__H||(u$1.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l(n){return o$1=1,p$1(w,n)}function p$1(n,r,o){var i=m$2(t$2++,2);return i.t=n,i.__c||(i.__=[o?o(r):w(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u$1),i.__}function y$1(r,o){var i=m$2(t$2++,3);!n.__s&&k$1(i.__H,o)&&(i.__=r,i.__H=o,u$1.__H.__h.push(i));}function x$1(){i$1.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j$1),t.__H.__h=[];}catch(u){t.__H.__h=[],n.__e(u,t.__v);}}),i$1=[];}n.__b=function(n){u$1=null,c$1&&c$1(n);},n.__r=function(n){f$1&&f$1(n),t$2=0;var r=(u$1=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j$1),r.__h=[]);},n.diffed=function(t){e$2&&e$2(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$1.push(o)&&r$1===n.requestAnimationFrame||((r$1=n.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b$1&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b$1&&(t=requestAnimationFrame(u));})(x$1)),u$1=void 0;},n.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j$1(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],n.__e(r,t.__v);}}),a$1&&a$1(t,u);},n.unmount=function(t){v$1&&v$1(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){n.__e(t,u.__v);}};var b$1="function"==typeof requestAnimationFrame;function g$1(n){var t=u$1;"function"==typeof n.__c&&n.__c(),u$1=t;}function j$1(n){var t=u$1;n.__c=n.__(),u$1=t;}function k$1(n,t){return !n||n.length!==t.length||t.some(function(t,u){return t!==n[u]})}function w(n,t){return "function"==typeof t?t(n):t}
+var t$2,u$1,r$1,o$1=0,i$1=[],c$1=n.__b,f$1=n.__r,e$2=n.diffed,a$1=n.__c,v$1=n.unmount;function m$2(t,r){n.__h&&n.__h(u$1,t,o$1||r),o$1=0;var i=u$1.__H||(u$1.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l(n){return o$1=1,p$1(w,n)}function p$1(n,r,o){var i=m$2(t$2++,2);return i.t=n,i.__c||(i.__=[o?o(r):w(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u$1),i.__}function x$1(){i$1.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j$1),t.__H.__h=[];}catch(u){t.__H.__h=[],n.__e(u,t.__v);}}),i$1=[];}n.__b=function(n){u$1=null,c$1&&c$1(n);},n.__r=function(n){f$1&&f$1(n),t$2=0;var r=(u$1=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j$1),r.__h=[]);},n.diffed=function(t){e$2&&e$2(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$1.push(o)&&r$1===n.requestAnimationFrame||((r$1=n.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b$1&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b$1&&(t=requestAnimationFrame(u));})(x$1)),u$1=void 0;},n.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j$1(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],n.__e(r,t.__v);}}),a$1&&a$1(t,u);},n.unmount=function(t){v$1&&v$1(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){n.__e(t,u.__v);}};var b$1="function"==typeof requestAnimationFrame;function g$1(n){var t=u$1;"function"==typeof n.__c&&n.__c(),u$1=t;}function j$1(n){var t=u$1;n.__c=n.__(),u$1=t;}function w(n,t){return "function"==typeof t?t(n):t}
 
 const List = ({ data }) => { // takes a data prop
-    return m$1`
-        <ul>
-            <!-- loop over data array -->
-            ${data.map(i => m$1`
-                <li> 
-                    <!-- render out each item -->
-                    ${i}
-                </li>
-            `)}
-        </ul>
-    `
+  // how many clicks have we counted? Default to 0
+  const [count, setCount] = l(0);
+
+  // shared event handler
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return m$1`
+    <ul>
+      ${data && data.map(i => m$1`
+        <li>
+          <!-- listen for button clicks -->
+          ${i}: <button onClick=${handleClick}>Click me</button>
+        </li>
+      `)}
+      <li>
+        <!-- list how many clicks we've seen, with the right plural -->
+        ${count} ${count === 1 ? 'click' : 'clicks'} counted
+      </li>
+    </ul>
+  `
 };
 
-const App = () => {
-    console.log(l, y$1);
+const dataArray = ['Item one', 'Item two', 'Item three'];
 
-    // const [dataArray, setDataArray] = useState(['Item one', 'Item two', 'Item three', 'item 4', 'item 5'])
-    const [dataArray, setDataArray] = [['Item one', 'Item two', 'Item three', 'item 4', 'item 5'], (i) => console.log(i)];
-
-    y$1(() => {
-        console.log('useEffect!!');
-    }, []);
-    
-    return m$1`
-        <${List} data=${dataArray} />
-        <button onclick=${() => setDataArray([...dataArray, "another item"])}>add item</button>
-    `
+const PreactApp = () => {
+  return m$1`
+    <${List} data=${dataArray} />
+  `
 };
 
-O(App(), document.querySelector('#root'));
+O(PreactApp(), document.getElementById('root'));
 //# sourceMappingURL=client.js.map

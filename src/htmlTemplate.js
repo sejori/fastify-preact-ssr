@@ -1,6 +1,6 @@
 export default (html) => `
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@ export default (html) => `
         <title>howtobuild</title>
     </head>
     <body>
-        <div id="#root">
+        <div id="root">
             ${html}
         </div>
         <script type="module" src="client.js" async></script>
