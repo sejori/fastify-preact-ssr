@@ -1,14 +1,30 @@
 # Server-side rendered Preact Fastify app.
 
-**Commands:**
-- ```$ npm run dev``` - rollup Preact app into public/client.js and watch for changes & run lib/server.js with nodemon. App available at localhost:8888.
-- ```$ npm build``` - rollup Preact app into public/client.js.
-- ```$ npm start``` - run lib/server.js
+![lighthouse-score]()
 
-### Overview
+### Overview:
 
-This application will use the Preact pages & components on the server side to render html to return to the client (using ```preact-render-to-string```). The Preact app bundle in ```public/client.js``` is referrenced in the html once pulled into the user's web client is used to Hydrate the html with all the juicy Preact goodness. 
+The **Fastify** app bundle ```lib/server.js -> rollup -> build/server.js``` uses ```src/pages/index.js``` to render the html for each page on the server side using **preact-render-to-string** and serve via the correct url path. 
 
-Check out ```src/client.js``` to see the client file before it is bundled by rollup.
+The Preact bundle (```src/client.js -> rollup -> public/client.js```) is referrenced in the html and once loaded will Hydrate the DOM with all the juicy **Preact** goodness with **preact-router** to hydrate the correct content for the page. 
+
+This does mean that Preact components for all pages are loaded in the ```client.js``` bundle, making the initial time-to-interactive slower if you have many pages with many components. The perk of this is that once this file is cached by the browser your pages will all be super snappy!
+
+**styled-components** are used for clean, css-in-js styling. It's just the best style solution out there for this kind of application.
+
+
+### Commands:
+
+- ```$ npm run dev``` - rollup src/client.js into public/client.js and lib/server.js into build/server.js with sourcemaps and file-watching & run build/server.js with nodemon. App available at localhost:8888.
+- ```$ npm build``` - rollup src/client.js into public/client.js and lib/server.js into build/server.js.
+- ```$ npm start``` - run build/server.js
+
+### Get started:
+
+To build on this codebase check out ```src/client.js``` and ```lib/server.js``` then have a go at editing ```src/```:
+ - ```components```
+ - ```pages```
+ - ```layouts```
+
 
 Codebase inspired by [Kyle Macquarrie](https://kylemacquarrie.co.uk/blog/preact-ssr-tutorial).

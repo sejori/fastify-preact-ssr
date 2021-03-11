@@ -10,6 +10,13 @@ export default (html) => `
         <title>${packageJson.name}</title>
         <meta name="description" content="${packageJson.description}">
         <meta name="keywords" content="${packageJson.keywords.join(", ")}">
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <div id="root">

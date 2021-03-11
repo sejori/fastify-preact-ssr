@@ -1,11 +1,11 @@
 import { html } from 'htm/preact'
-import App from '../components/PreactApp'
+import Layout from '../layouts/layout'
 
 const About = () => {
-    return html`
+    return html`<${Layout}>
         <h1>About!</h1>
-        <${App} />
-    `
+        <img src="/lighthouse-score.png" alt="lighthouse-score" />
+    <//>`
 }
   
 export default About

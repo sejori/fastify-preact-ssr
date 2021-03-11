@@ -12,6 +12,17 @@ var n$2=function(t,s,r,e){var u;s[0]=0;for(var h=1;h<s.length;h++){var p=s[h++],
 
 var m$1=e.bind(a);
 
+const Layout = ({ children }) => {
+    return m$1`
+        <nav>
+            <a href="/">Home...</a><a href="/about">About...</a>
+        </nav>
+        <main>
+            ${m$1`${children}`}
+        </main>
+    `
+};
+
 var t$1,u$1,r$1,o$1=0,i$2=[],c$1=n.__b,f$1=n.__r,e$1=n.diffed,a$2=n.__c,v$2=n.unmount;function m$2(t,r){n.__h&&n.__h(u$1,t,o$1||r),o$1=0;var i=u$1.__H||(u$1.__H={__:[],__h:[]});return t>=i.__.length&&i.__.push({}),i.__[t]}function l$1(n){return o$1=1,p$1(w,n)}function p$1(n,r,o){var i=m$2(t$1++,2);return i.t=n,i.__c||(i.__=[o?o(r):w(void 0,r),function(n){var t=i.t(i.__[0],n);i.__[0]!==t&&(i.__=[t,i.__[1]],i.__c.setState({}));}],i.__c=u$1),i.__}function x$1(){i$2.forEach(function(t){if(t.__P)try{t.__H.__h.forEach(g$1),t.__H.__h.forEach(j),t.__H.__h=[];}catch(u){t.__H.__h=[],n.__e(u,t.__v);}}),i$2=[];}n.__b=function(n){u$1=null,c$1&&c$1(n);},n.__r=function(n){f$1&&f$1(n),t$1=0;var r=(u$1=n.__c).__H;r&&(r.__h.forEach(g$1),r.__h.forEach(j),r.__h=[]);},n.diffed=function(t){e$1&&e$1(t);var o=t.__c;o&&o.__H&&o.__H.__h.length&&(1!==i$2.push(o)&&r$1===n.requestAnimationFrame||((r$1=n.requestAnimationFrame)||function(n){var t,u=function(){clearTimeout(r),b$1&&cancelAnimationFrame(t),setTimeout(n);},r=setTimeout(u,100);b$1&&(t=requestAnimationFrame(u));})(x$1)),u$1=void 0;},n.__c=function(t,u){u.some(function(t){try{t.__h.forEach(g$1),t.__h=t.__h.filter(function(n){return !n.__||j(n)});}catch(r){u.some(function(n){n.__h&&(n.__h=[]);}),u=[],n.__e(r,t.__v);}}),a$2&&a$2(t,u);},n.unmount=function(t){v$2&&v$2(t);var u=t.__c;if(u&&u.__H)try{u.__H.__.forEach(g$1);}catch(t){n.__e(t,u.__v);}};var b$1="function"==typeof requestAnimationFrame;function g$1(n){var t=u$1;"function"==typeof n.__c&&n.__c(),u$1=t;}function j(n){var t=u$1;n.__c=n.__(),u$1=t;}function w(n,t){return "function"==typeof t?t(n):t}//# sourceMappingURL=hooks.module.js.map
 
 const List = ({ data }) => { // takes a data prop
@@ -48,17 +59,17 @@ const PreactApp = () => {
 };
 
 const Home = () => {
-    return m$1`
+    return m$1`<${Layout}>
         <h1>Home!</h1>
         <${PreactApp} />
-    `
+    <//>`
 };
 
 const About = () => {
-    return m$1`
+    return m$1`<${Layout}>
         <h1>About!</h1>
-        <${PreactApp} />
-    `
+        <img src="/lighthouse-score.png" alt="lighthouse-score" />
+    <//>`
 };
 
 var pages = [
@@ -149,6 +160,13 @@ var htmlShell = (html) => `
         <title>${packageJson.name}</title>
         <meta name="description" content="${packageJson.description}">
         <meta name="keywords" content="${packageJson.keywords.join(", ")}">
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <div id="root">
