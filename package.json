@@ -1,7 +1,7 @@
 {
     "name": "fastify-preact-ssr",
     "version": "1.0.0",
-    "description": "Fastify server that renders Preact to html and serves a Preact client.js bundle for DOM hydration. Powered by Rollup.",
+    "description": "Fastify server-side renders Preact to html and serves with a Preact client.js bundle for DOM hydration. Powered by Rollup.",
     "main": "build/index.js",
     "scripts": {
         "nodemon": "nodemon build/server.js",
