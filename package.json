@@ -1,8 +1,8 @@
 {
-    "name": "preact-ssr",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "name": "howtobuild",
+    "version": "0.0.1",
+    "description": "Chat-based search that helps you build your next software project.",
+    "main": "build/index.js",
     "scripts": {
         "nodemon": "nodemon build/server.js",
         "rollup": "rollup --config --watch --sourcemap",
@@ -10,9 +10,32 @@
         "start": "node lib/server.js",
         "build": "rollup --config"
     },
-    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sebringrose/HowToBuild.git"
+    },
+    "keywords": [
+        "chat",
+        "education",
+        "preact",
+        "fastify",
+        "how",
+        "to",
+        "build",
+        "your",
+        "next",
+        "project",
+        "software",
+        "tech"
+    ],
+    "author": "Seb Ringrose <sebringrose@gmail.com>",
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sebringrose/HowToBuild/issues"
+    },
+    "homepage": "https://github.com/sebringrose/HowToBuild#readme",
     "dependencies": {
+        "@rollup/plugin-json": "^4.1.0",
         "fastify": "^3.13.0",
         "fastify-compress": "^3.4.2",
         "fastify-static": "^4.0.1",

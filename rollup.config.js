@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve'
+import json from '@rollup/plugin-json'
 
 export default [
   {
@@ -7,7 +8,7 @@ export default [
       file: 'build/server.js',
       format: 'cjs',
     },
-    plugins: [resolve()],
+    plugins: [resolve(), json()],
   },
   {
     input: 'src/client.js',
@@ -16,6 +17,6 @@ export default [
       format: 'es',
       name: 'client',
     },
-    plugins: [resolve()],
+    plugins: [resolve(), json()],
   },
 ]

@@ -1,4 +1,4 @@
 import { hydrate } from 'preact'
-import PreactApp from './components/PreactApp'
+import Router from './components/Router.js'
 
-hydrate(PreactApp(), document.getElementById('root'))
+hydrate(Router(), document.querySelector('#root'))
