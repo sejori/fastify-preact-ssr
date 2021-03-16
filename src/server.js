@@ -3,7 +3,7 @@ import { html } from 'htm/preact'
 import path from 'path'
 
 import pages from './pages'
-import htmlShell from './components/HtmlTemplate'
+import htmlShell from './components/htmlTemplate'
 
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
