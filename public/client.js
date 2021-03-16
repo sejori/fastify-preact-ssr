@@ -470,3 +470,4 @@ const Router$1 = () => {
 // ${pages.map(page => html`<${page.component} path="${page.route}">`)}
 
 O(Router$1(), document.querySelector('#root'));
+//# sourceMappingURL=client.js.map

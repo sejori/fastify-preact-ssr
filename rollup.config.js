@@ -3,7 +3,7 @@ import json from '@rollup/plugin-json'
 
 export default [
   {
-    input: 'lib/server.js',
+    input: 'src/server.js',
     output: {
       file: 'build/server.js',
       format: 'cjs',

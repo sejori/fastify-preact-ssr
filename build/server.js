@@ -125,7 +125,7 @@ var scripts = {
 	nodemon: "nodemon build/server.js",
 	rollup: "rollup --config --watch --sourcemap",
 	dev: "npm run rollup & npm run nodemon",
-	start: "node lib/server.js",
+	start: "node build/server.js",
 	build: "rollup --config"
 };
 var repository = {
@@ -241,3 +241,4 @@ const start = async () => {
     }
 };
 start();
+//# sourceMappingURL=server.js.map
