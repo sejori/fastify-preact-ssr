@@ -2,8 +2,8 @@ import { h } from  'preact'
 import render from 'preact-render-to-string'
 import path from 'path'
 
-import pages from './preact/pages'
-import htmlShell from './preact/layouts/htmlTemplate'
+import pages from './preact/pages/Index'
+import htmlShell from './templates/default'
 
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
@@ -13,7 +13,6 @@ const app = fastify({ logger: true })
 app.register(fastifyStatic, {
     root: path.join(__dirname, '../public')
 })
-
 
 // ROUTES
 pages.forEach(page => app.route({

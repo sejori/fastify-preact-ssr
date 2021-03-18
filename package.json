@@ -5,7 +5,7 @@
     "main": "build/index.js",
     "scripts": {
         "nodemon": "nodemon build/server.js",
-        "rollup": "rollup --config --watch --sourcemap",
+        "rollup": "rollup --config --sourcemap --watch",
         "dev": "npm run rollup & npm run nodemon",
         "start": "node build/server.js",
         "build": "rollup --config"

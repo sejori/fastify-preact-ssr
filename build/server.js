@@ -465,7 +465,7 @@ var description = "Fastify server-side renders Preact to html and serves with a 
 var main = "build/index.js";
 var scripts = {
 	nodemon: "nodemon build/server.js",
-	rollup: "rollup --config --watch --sourcemap",
+	rollup: "rollup --config --sourcemap --watch",
 	dev: "npm run rollup & npm run nodemon",
 	start: "node build/server.js",
 	build: "rollup --config"
@@ -582,3 +582,4 @@ const start = async () => {
 };
 
 start();
+//# sourceMappingURL=server.js.map

@@ -5,12 +5,10 @@ import { babel } from '@rollup/plugin-babel'
 export default [
     {
         input: 'src/server.js',
-        watch: {
-            include: 'src/**',
-        },
         output: {
             file: 'build/server.js',
             format: 'cjs',
+            watch: 'src/**/**/*'
         },
         plugins: [resolve(), json(), babel({ babelHelpers: 'bundled', plugins: [['@babel/plugin-transform-react-jsx', { pragma: 'h', pragmaFrag: 'Fragment' }]] })],
     },
@@ -20,6 +18,7 @@ export default [
             file: 'public/client.js',
             format: 'es',
             name: 'client',
+            watch: 'src/**/**/*'
         },
         plugins: [resolve(), json(), babel({ babelHelpers: 'bundled', plugins: [['@babel/plugin-transform-react-jsx', { pragma: 'h', pragmaFrag: 'Fragment' }]] })],
     },

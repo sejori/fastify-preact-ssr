@@ -930,3 +930,4 @@ const Router$1 = () => {
 };
 
 O(Router$1(), document.querySelector('#root'));
+//# sourceMappingURL=client.js.map
