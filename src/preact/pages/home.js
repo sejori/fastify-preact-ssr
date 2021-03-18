@@ -1,12 +1,13 @@
-import { html } from 'htm/preact'
+import { h } from  'preact'
+
 import Layout from '../layouts/Layout'
 import App from '../components/App'
 
 const Home = () => {
-    return html`<${Layout} navColour="palegreen">
+    return <Layout navColour="palegreen">
         <h1>Home!</h1>
-        <${App} />
-    <//>`
+        <App />
+    </Layout>
 }
   
 export default Home

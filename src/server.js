@@ -1,5 +1,5 @@
+import { h } from  'preact'
 import render from 'preact-render-to-string'
-import { html } from 'htm/preact'
 import path from 'path'
 
 import pages from './preact/pages'
@@ -7,14 +7,13 @@ import htmlShell from './preact/layouts/htmlTemplate'
 
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
-const fastifyCompress = require('fastify-compress')
 
 // FASTIFY CONFIG
 const app = fastify({ logger: true })
 app.register(fastifyStatic, {
     root: path.join(__dirname, '../public')
 })
-// app.register(fastifyCompress) <- enable for on-demand compression of static files in public folder
+
 
 // ROUTES
 pages.forEach(page => app.route({
@@ -29,7 +28,7 @@ pages.forEach(page => app.route({
     },
     handler: function (request, response) {
         response.header('Content-Type', 'text/html; charset=utf-8')
-        return htmlShell(render(html`<${page.component}/>`))
+        return htmlShell(render(<page.component />))
     }
 }))
 

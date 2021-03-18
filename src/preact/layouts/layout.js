@@ -1,16 +1,17 @@
-import { html } from 'htm/preact'
+import { h, Fragment } from  'preact'
 
 const Layout = ({ navColour, children }) => {
 
-    return html`
-        <nav style=${navStyle(navColour)}>
-            <a style=${navLinkStyle} href="/">Home</a>
-            <a style=${navLinkStyle} href="/about">About</a>
+    return <>
+        <nav style={navStyle(navColour)}>
+            <a style={navLinkStyle} href="/">Home</a>
+            <a style={navLinkStyle} href="/about">About</a>
         </nav>
-        <main style=${mainStyle}>
-            ${html`${children}`}
+        <main style={mainStyle}>
+            {children}
         </main>
-    `
+    </>
+        
 }
 
 const navStyle = (colour) => `
