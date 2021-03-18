@@ -21,6 +21,8 @@ To build on this codebase check out ```src/client.js``` and ```src/server.js``` 
  - ```src/preact/pages```
  - ```src/preact/layouts```
 
+Make sure you update ```src/preact/pages/index.js``` if you add new pages.
+
 
 **WARNING: This has not been tested in production. Use at your own risk.**
 
