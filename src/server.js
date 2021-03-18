@@ -2,8 +2,8 @@ import render from 'preact-render-to-string'
 import { html } from 'htm/preact'
 import path from 'path'
 
-import pages from './pages'
-import htmlShell from './components/htmlTemplate'
+import pages from './preact/pages'
+import htmlShell from './preact/layouts/htmlTemplate'
 
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
