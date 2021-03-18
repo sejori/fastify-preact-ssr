@@ -1,6 +1,6 @@
 import packageJson from '../../package.json'
 
-export default (html) => `
+export default (html, route) => `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -23,7 +23,7 @@ export default (html) => `
         <div id="root">
             ${html}
         </div>
-        <script type="module" src="client.js" async></script>
+        <script type="module" src="${route}.js" async></script>
     </body>
     </html>
 `

@@ -265,200 +265,6 @@ function b(n$1, o, a$1, i, u, v) {
 
 y$1.shallowRender = m;
 
-const Layout = ({
-  navColour,
-  children
-}) => {
-  return a(y, null, a("nav", {
-    style: navStyle(navColour)
-  }, a("a", {
-    style: navLinkStyle,
-    href: "/"
-  }, "Home"), a("a", {
-    style: navLinkStyle,
-    href: "/about"
-  }, "About")), a("main", {
-    style: mainStyle
-  }, children));
-};
-
-const navStyle = colour => `
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    background-color: ${colour};
-`;
-
-const navLinkStyle = `
-    margin: 1rem;
-`;
-const mainStyle = `
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-`;
-
-var t,
-    u$1,
-    r$1,
-    o$1 = 0,
-    i$2 = [],
-    c$1 = n.__b,
-    f$1 = n.__r,
-    e = n.diffed,
-    a$2 = n.__c,
-    v$2 = n.unmount;
-
-function m$1(t, r) {
-  n.__h && n.__h(u$1, t, o$1 || r), o$1 = 0;
-  var i = u$1.__H || (u$1.__H = {
-    __: [],
-    __h: []
-  });
-  return t >= i.__.length && i.__.push({}), i.__[t];
-}
-
-function l$1(n) {
-  return o$1 = 1, p$1(w, n);
-}
-
-function p$1(n, r, o) {
-  var i = m$1(t++, 2);
-  return i.t = n, i.__c || (i.__ = [o ? o(r) : w(void 0, r), function (n) {
-    var t = i.t(i.__[0], n);
-    i.__[0] !== t && (i.__ = [t, i.__[1]], i.__c.setState({}));
-  }], i.__c = u$1), i.__;
-}
-
-function x$1() {
-  i$2.forEach(function (t) {
-    if (t.__P) try {
-      t.__H.__h.forEach(g$1), t.__H.__h.forEach(j), t.__H.__h = [];
-    } catch (u) {
-      t.__H.__h = [], n.__e(u, t.__v);
-    }
-  }), i$2 = [];
-}
-
-n.__b = function (n) {
-  u$1 = null, c$1 && c$1(n);
-}, n.__r = function (n) {
-  f$1 && f$1(n), t = 0;
-  var r = (u$1 = n.__c).__H;
-  r && (r.__h.forEach(g$1), r.__h.forEach(j), r.__h = []);
-}, n.diffed = function (t) {
-  e && e(t);
-  var o = t.__c;
-  o && o.__H && o.__H.__h.length && (1 !== i$2.push(o) && r$1 === n.requestAnimationFrame || ((r$1 = n.requestAnimationFrame) || function (n) {
-    var t,
-        u = function () {
-      clearTimeout(r), b$1 && cancelAnimationFrame(t), setTimeout(n);
-    },
-        r = setTimeout(u, 100);
-
-    b$1 && (t = requestAnimationFrame(u));
-  })(x$1)), u$1 = void 0;
-}, n.__c = function (t, u) {
-  u.some(function (t) {
-    try {
-      t.__h.forEach(g$1), t.__h = t.__h.filter(function (n) {
-        return !n.__ || j(n);
-      });
-    } catch (r) {
-      u.some(function (n) {
-        n.__h && (n.__h = []);
-      }), u = [], n.__e(r, t.__v);
-    }
-  }), a$2 && a$2(t, u);
-}, n.unmount = function (t) {
-  v$2 && v$2(t);
-  var u = t.__c;
-  if (u && u.__H) try {
-    u.__H.__.forEach(g$1);
-  } catch (t) {
-    n.__e(t, u.__v);
-  }
-};
-var b$1 = "function" == typeof requestAnimationFrame;
-
-function g$1(n) {
-  var t = u$1;
-  "function" == typeof n.__c && n.__c(), u$1 = t;
-}
-
-function j(n) {
-  var t = u$1;
-  n.__c = n.__(), u$1 = t;
-}
-
-function w(n, t) {
-  return "function" == typeof t ? t(n) : t;
-}
-
-const List = ({
-  data
-}) => {
-  // takes a data prop
-  // how many clicks have we counted? Default to 0
-  const [count, setCount] = l$1(0); // shared event handler
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  return a("ul", null, data && data.map(i => a("li", null, i, ": ", a("button", {
-    onClick: handleClick
-  }, "Click me"))), a("li", null, count, " ", count === 1 ? 'click' : 'clicks', " counted"));
-};
-
-const App = () => {
-  const [dataArray, setDataArray] = l$1(['Item 0', 'Item 1', 'Item 2']);
-  return a("div", null, a(List, {
-    data: dataArray
-  }), a("button", {
-    style: buttonStyle,
-    onClick: () => setDataArray(dataArray => [...dataArray, `Item ${dataArray.length}`])
-  }, "add item"));
-};
-
-const buttonStyle = `
-    border: solid 1px red;
-    background-color: orange;
-    padding: 0.5rem;
-    font-size: 1rem;
-`;
-
-const Home = () => {
-  return a(Layout, {
-    navColour: "palegreen"
-  }, a("h1", null, "Home!"), a(App, null));
-};
-
-const About = () => {
-  return a(Layout, {
-    navColour: "lavender"
-  }, a("h1", null, "About!"), a("img", {
-    style: imgStyle,
-    src: "/lighthouse-score.png",
-    alt: "lighthouse-score"
-  }), a("p", null, "Do I need to say anymore?"), a("a", {
-    href: "https://github.com/sebringrose/fastify-preact-ssr"
-  }, "Github"));
-};
-
-const imgStyle = `
-    max-width: 100%;
-`;
-
-var pages = [{
-  route: "/",
-  component: Home
-}, {
-  route: "/about",
-  component: About
-}];
-
 var name = "fastify-preact-ssr";
 var version = "1.0.0";
 var description = "Fastify server-side renders Preact to html and serves with a Preact client.js bundle for DOM hydration. Powered by Rollup.";
@@ -495,10 +301,13 @@ var dependencies = {
 var devDependencies = {
 	"@babel/plugin-transform-react-jsx": "^7.12.17",
 	"@rollup/plugin-babel": "^5.3.0",
+	"@rollup/plugin-dynamic-import-vars": "^1.1.1",
 	"@rollup/plugin-json": "^4.1.0",
 	"@rollup/plugin-node-resolve": "^7.1.3",
+	glob: "^7.1.6",
 	nodemon: "^2.0.7",
-	rollup: "^1.32.1"
+	rollup: "^1.32.1",
+	"rollup-plugin-copy": "^3.4.0"
 };
 var packageJson = {
 	name: name,
@@ -516,7 +325,7 @@ var packageJson = {
 	devDependencies: devDependencies
 };
 
-var htmlShell = (html => `
+var htmlShell = ((html, route) => `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -539,10 +348,19 @@ var htmlShell = (html => `
         <div id="root">
             ${html}
         </div>
-        <script type="module" src="client.js" async></script>
+        <script type="module" src="${route}.js" async></script>
     </body>
     </html>
 `);
+
+function __variableDynamicImportRuntime0__(path) {
+   switch (path) {
+  
+     default: return Promise.reject(new Error("Unknown variable dynamic import: " + path));
+   }
+ }
+
+const glob = require('glob');
 
 const fastify = require('fastify');
 
@@ -556,21 +374,24 @@ app.register(fastifyStatic, {
   root: path.join(__dirname, '../public')
 }); // ROUTES
 
-pages.forEach(page => app.route({
-  method: 'GET',
-  url: page.route,
-  schema: {
-    response: {
-      200: {
-        type: 'string'
+glob.sync('../preact/pages/*.js').forEach(file => {
+  const fileName = file.split('/').slice(-1)[0];
+  __variableDynamicImportRuntime0__(`../src/pages/${fileName.split(".")[0]}.js`).then(page => app.route({
+    method: 'GET',
+    url: page.route,
+    schema: {
+      response: {
+        200: {
+          type: 'string'
+        }
       }
+    },
+    handler: function (request, response) {
+      response.header('Content-Type', 'text/html; charset=utf-8');
+      return htmlShell(y$1(a(page.component, null)), fileName);
     }
-  },
-  handler: function (request, response) {
-    response.header('Content-Type', 'text/html; charset=utf-8');
-    return htmlShell(y$1(a(page.component, null)));
-  }
-})); // START SERVER
+  }));
+}); // START SERVER
 
 const start = async () => {
   try {

@@ -14,4 +14,7 @@ const imgStyle = `
     max-width: 100%;
 `
 
-export default About
+export default {
+    component: About,
+    route: "/about"
+}

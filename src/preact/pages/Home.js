@@ -9,5 +9,8 @@ const Home = () => {
         <App />
     </Layout>
 }
-  
-export default Home
+
+export default {
+    component: Home,
+    route: "/"
+}
