@@ -1,11 +1,13 @@
 import Layout from '../layouts/Layout.js'
 import { html } from 'htm/preact/index.mjs'
 
+import usePreHydrate from '../hooks/usePreHydrate'
+
 const About = () => {
-    // usePreHydration({
-    //     node: 'htm/preact/index.mjs',
-    //     browser: 'https://cdn.skypack.dev/htm/preact'
-    // })
+    let html
+    usePreHydrate(async (html) => {
+        const { html } = await import('https://cdn.skypack.dev/htm/preact')
+    })
 
     return html`
         <${Layout} navColour="lavender">
