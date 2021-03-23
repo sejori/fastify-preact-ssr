@@ -1,12 +1,12 @@
-import Layout from '../layouts/Layout.js'
 import { html } from 'htm/preact/index.mjs'
+import Layout from '../layouts/Layout.js'
 
 const About = () => {
     return html`
         <${Layout} navColour="lavender">
             <h1>About!</h1>
             <img style=${imgStyle} src="/assets/lighthouse-score.png" alt="lighthouse-score" />
-            <p>Do I need to say anymore?</p>
+            <p>Need I say more?</p>
             <a href="https://github.com/sebringrose/fastify-preact-ssr">Github</a>
         </${Layout}>
     `
