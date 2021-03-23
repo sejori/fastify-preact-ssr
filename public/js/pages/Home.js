@@ -1,4 +1,4 @@
-import { html } from  'htm/preact/index.mjs'
+import { html } from 'htm/preact/index.mjs'
 
 import Layout from '../layouts/Layout.js'
 import App from '../components/App.js'
