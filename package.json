@@ -27,13 +27,8 @@
     "dependencies": {
         "fastify": "^3.13.0",
         "fastify-static": "^4.0.1",
-        "glob": "^7.1.6",
         "htm": "^3.0.4",
         "preact": "^10.3.4",
-        "preact-render-to-string": "^5.1.14",
-        "preact-router": "^3.2.1"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.7"
+        "preact-render-to-string": "^5.1.14"
     }
 }
