@@ -36,7 +36,7 @@ pages.forEach(page =>
 // START SERVER
 const start = async () => {
     try {
-        await app.listen(8888)
+        await app.listen({ port: 8888 })
     } catch (e) {
         app.log.error(e)
         process.exit(1)
